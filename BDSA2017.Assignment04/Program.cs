@@ -6,7 +6,6 @@ namespace BDSA2017.Assignment02
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
         }
     }
 }
