@@ -34,36 +34,17 @@ The tournament needs the following entities:
 - Track (name, length in meters, best time, max cars)
 - Car (name, driver name)
 - Race (track, number of laps, planned start time, actual start time, planned end time, actual end time)
-- CarInRace (race, car, end position, best lap, total race time)
+- CarInRace (race, car, start position, end position, best lap, total race time)
 
 Create the *POCOs* and `DBContext` required for the model above.
 
-Implement and test the `IRaceRepository` interface.
+Note: *Duration* may be modelled as 64-bit integers representing *ticks*, as they can be easily converted to/from a `TimeSpan`.
 
-```csharp
-public interface IRaceRepository : IDisposable
-{
-    int Create(RaceCreateDTO race);
-    IEnumerable<RaceListDTO> Read();
-    RaceCreateDTO Read(int raceId);
-    (bool ok, string error) Update(RaceCreateDTO race);
-    (bool ok, string error) AddCarToRace(int carId, int raceId);
-    (bool ok, string error) RemoveCarFromRace(int carId, int raceId);
-    (bool ok, string error) Delete(int raceId);
-}
-```
+Implement and test the `CarCRUD` class.
 
-with the following rules:
+Implement the `Seed` method found in the `Program` class. `Seed` should seed your database with data allowing you to query the database test results against the queries to be implemented in the `Queries` class.
 
-- Once a race is started (actual start time != `null`) it cannot be deleted.
-- Cars can only be added or removed from a race before start.
-- You cannot add more cars to a race than the track supports.
-
-Your code should not throw exceptions. Instead, if for instance someone is trying to add a car which does exist to a race which does not exist:
-
-```csharp
-return (false, "race not found");
-```
+Implement and test the `Queries` class.
 
 ## Submitting the assignment
 
