@@ -1,14 +1,15 @@
 ﻿using BDSA2017.Assignment04.Entities;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace BDSA2017.Assignment04
 {
     public class CarCRUD : IDisposable
     {
-        private readonly SlotCarContext _context;
+        private readonly RaceContext _context;
 
-        public CarCRUD(SlotCarContext context)
+        public CarCRUD(RaceContext context)
         {
             _context = context;
         }
@@ -18,34 +19,53 @@ namespace BDSA2017.Assignment04
         /// </summary>
         /// <param name="car"></param>
         /// <returns>The id of the newly created car</returns>
-        public int Create(Entities.Car car)
+        public int Create(Entities.Cars car)
         {
-            throw new NotImplementedException();
+            using (_context)
+            {
+                _context.Cars.Add(car);
+                return car.Id;
+            }
         }
 
-        public Car FindById(int id)
+        public Cars FindById(int id)
         {
-            throw new NotImplementedException();
+            using (_context)
+            {
+                var car =_context.Cars.Find(id);
+                return car;
+            }
         }
 
-        public ICollection<Entities.Car> All()
+        public ICollection<Entities.Cars> All()
         {
-            throw new NotImplementedException();
+            using (_context)
+            {
+                return _context.Cars.ToList();
+            }
         }
 
-        public void Update(Entities.Car car)
+        public void Update(Cars car)
         {
-            throw new NotImplementedException();
+            using (_context)
+            {
+               var test = _context.Cars.Where(a=> a.Id ==1).FirstOrDefault();
+                test = car;
+                _context.SaveChanges();
+            }
+            
         }
 
         public void Delete(int carId)
         {
-            throw new NotImplementedException();
+            var test = _context.Cars.Find(carId);
+            _context.Remove(test);
+            _context.SaveChanges();
         }
 
         public void Dispose()
         {
-            throw new NotImplementedException();
+            _context.Dispose();
         }
     }
 }

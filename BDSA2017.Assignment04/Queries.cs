@@ -1,15 +1,16 @@
-﻿using System;
+﻿using BDSA2017.Assignment04.Entities;
+using System;
 
 namespace BDSA2017.Assignment04
 {
     public class Queries
     {
-        public TrackInfo GetTrackInfo(int trackId)
+        public Tracks GetTrackInfo(int trackId)
         {
             throw new NotImplementedException();
         }
 
-        public RaceInfo GetRaceInfo(int raceId)
+        public Races GetRaceInfo(int raceId)
         {
             throw new NotImplementedException();
         }
