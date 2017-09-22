@@ -18,7 +18,7 @@ namespace BDSA2017.Assignment04
         /// </summary>
         /// <param name="car"></param>
         /// <returns>The id of the newly created car</returns>
-        public int Create(Car car)
+        public int Create(Entities.Car car)
         {
             throw new NotImplementedException();
         }
@@ -28,12 +28,12 @@ namespace BDSA2017.Assignment04
             throw new NotImplementedException();
         }
 
-        public ICollection<Car> All()
+        public ICollection<Entities.Car> All()
         {
             throw new NotImplementedException();
         }
 
-        public void Update(Car car)
+        public void Update(Entities.Car car)
         {
             throw new NotImplementedException();
         }
