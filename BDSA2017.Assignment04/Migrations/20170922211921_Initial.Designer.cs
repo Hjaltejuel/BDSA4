@@ -11,7 +11,7 @@ using System;
 namespace BDSA2017.Assignment04.Migrations
 {
     [DbContext(typeof(RaceContext))]
-    [Migration("20170922135146_Initial")]
+    [Migration("20170922211921_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
