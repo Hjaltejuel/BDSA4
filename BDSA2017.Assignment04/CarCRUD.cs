@@ -21,45 +21,55 @@ namespace BDSA2017.Assignment04
         /// <returns>The id of the newly created car</returns>
         public int Create(Entities.Cars car)
         {
-          
+            using (_context) { 
                _context.Cars.Add(car);
                 _context.SaveChanges();
+                }
                 return car.Id;
            
         }
 
         public Cars FindById(int id)
         {
-         
-                var car =_context.Cars.Find(id);
+            using (_context)
+            {
+                var car = _context.Cars.Find(id);
                 return car;
+            }
             
         }
 
         public ICollection<Entities.Cars> All()
         {
-          
+            using (_context)
+            {
                 return _context.Cars.ToList();
+            }
             
         }
 
         public void Update(Cars car)
         {
-           
-               foreach(Cars vehicle in _context.Cars)
+            using (_context)
             {
-                vehicle.Name = car.Name;
+                foreach (Cars vehicle in _context.Cars)
+                {
+                    vehicle.Name = car.Name;
+                }
+                _context.SaveChanges();
             }
-            _context.SaveChanges();
             
             
         }
 
         public void Delete(int carId)
         {
-            var test = _context.Cars.Find(carId);
-            _context.Remove(test);
-            _context.SaveChanges();
+            using (_context)
+            {
+                var test = _context.Cars.Find(carId);
+                _context.Remove(test);
+                _context.SaveChanges();
+            }
         }
 
         public void Dispose()
