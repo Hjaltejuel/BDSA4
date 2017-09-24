@@ -21,9 +21,5 @@ namespace BDSA2017.Assignment04
                 
             }
         }
-        protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            modelBuilder.Entity<CarInRaces>().HasKey(t => new { t.RaceId, t.CarId });
-        }
     }
 }

@@ -8,21 +8,21 @@ namespace BDSA2017.Assignment04.Entities
 {
     public class CarInRaces
     {
-
-        [ForeignKey("Race")]
         [Key]
-        public int RaceId { get; set; }
+        public int Id { get; set; }
 
-        [ForeignKey("Car")]
-        [Key]
-        public int CarId { get; set; }
+      
+        public Races Races  { get; set; }
+       
+       
+        public Cars Cars { get; set; }
 
         
-        public int? StartPosition { get; set; }
+        public int StartPosition { get; set; }
 
         public int? EndPosition { get; set; }
 
-        public long? BestLap { get; set; }
+        public long BestLap { get; set; }
 
         public long ? TotalRaceTime { get; set; }
     }

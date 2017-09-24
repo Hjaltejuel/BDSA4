@@ -16,6 +16,9 @@ namespace BDSA2017.Assignment04.Entities
         
         [Required]
         public String DriverName { get; set; }
+
+       
+       
        
     }
 }

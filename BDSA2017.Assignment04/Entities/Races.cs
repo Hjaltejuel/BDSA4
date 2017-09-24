@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -10,9 +11,8 @@ namespace BDSA2017.Assignment04.Entities
         [Key]
         public int Id { get; set; }
 
-        [ForeignKey("Track")]
         [Required]
-        public int TrackId { get; set; }
+        public Tracks Tracks { get; set; }
 
         [Required]
         public int NumberOfLaps { get; set; }
@@ -27,6 +27,7 @@ namespace BDSA2017.Assignment04.Entities
 
         public DateTime? ActualEndTime { get; set; }
 
-        public Tracks Track { get; set; }
+      
+
     }
 }
