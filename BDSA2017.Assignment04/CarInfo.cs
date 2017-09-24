@@ -12,6 +12,11 @@ namespace BDSA2017.Assignment04
         public long? BestLapInTicks { get; set; }
         public long? TotalRaceTimeInTicks { get; set; }
         public TimeSpan? BestLap => BestLapInTicks.HasValue ? TimeSpan.FromTicks(BestLapInTicks.Value) : default(TimeSpan?);
-        public TimeSpan? TotalRaceTime => throw new NotImplementedException();
+        public TimeSpan? TotalRaceTime => TotalRaceTimeInTicks.HasValue ? TimeSpan.FromTicks(TotalRaceTimeInTicks.Value) : default(TimeSpan?);
+
+        public override string ToString()
+        {
+            return "CarID " + CarId + " CarName " + CarName + " startPosition " + StartPosition + " endPosition " + EndPosition + " BestLap " + BestLapInTicks + " totalRaceTime " + TotalRaceTime;
+        }
     }
 }

@@ -32,14 +32,16 @@ namespace BDSA2017.Assignment04.Tests
             Assert.Equal(id,CarCRUD.FindById(id).Id);
            
         }
-
+        
         [Fact]
         public void TestAll()
         {
             var all = context.Cars.ToList();
-
-            Assert.Equal(all, CarCRUD.All());
+            Assert.True(all.OrderBy(i => i).SequenceEqual(
+                 CarCRUD.All().OrderBy(i => i)));
+           
         }
+    
         [Fact]
         public void TestUpdate()
         {
